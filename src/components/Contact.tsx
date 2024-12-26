@@ -6,13 +6,39 @@ const Contact = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
+  const [status, setStatus] = useState<string | null>(null); // To display submission status
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    // Optionally handle client-side submission feedback
+    // For Netlify Forms, you can let the browser handle the form submission
+    // and rely on Netlify to process it.
+    // However, to provide immediate feedback without page reload, you can use AJAX.
+
+    // Prevent the default form submission behavior
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here, you can add your submission logic (e.g., sending to an API).
+    setStatus('Sending...');
+
+    try {
+      const form = e.target as HTMLFormElement;
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      } else {
+        const result = await response.json();
+        setStatus(result.message || 'Something went wrong.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('An error occurred. Please try again later.');
+    }
   };
 
   return (
@@ -29,7 +55,21 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              name="contact" // Name your form for Netlify Forms
+              method="POST"
+              data-netlify="true" // Enable Netlify Forms
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Honeypot field for spam filtering */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div>
                 <label htmlFor="name" className="block font-opensans text-gray-700 mb-2">
                   Name
@@ -37,6 +77,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-coral focus:border-transparent"
@@ -51,6 +92,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-coral focus:border-transparent"
@@ -64,6 +106,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
@@ -80,6 +123,9 @@ const Contact = () => {
                 Nachricht senden
               </button>
             </form>
+            {status && (
+              <p className="mt-4 text-center text-gray-700">{status}</p>
+            )}
           </div>
 
           {/* Contact Information */}
