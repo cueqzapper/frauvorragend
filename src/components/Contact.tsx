@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { navigate } from 'gatsby'; // Ensure you have Gatsby's navigate if using Gatsby
 import type { ContactFormData } from '../types';
 
 const Contact = () => {
@@ -19,24 +18,20 @@ const Contact = () => {
     const formName = form.getAttribute('name');
     const formDataObj = new FormData(form);
 
-    // Append the form name for Netlify Forms
-    formDataObj.append('form-name', formName || '');
-
     try {
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj as any).toString(),
+        body: formDataObj,
+        // Do not set 'Content-Type' header when sending FormData
       });
 
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
-        // Optionally redirect to a success page
-        // navigate('/success');
       } else {
-        const result = await response.json();
-        setStatus(result.message || 'Something went wrong.');
+        // Attempt to read text response for error message
+        const errorText = await response.text();
+        setStatus(errorText || 'Something went wrong.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -65,7 +60,7 @@ const Contact = () => {
               data-netlify-honeypot="bot-field" // Honeypot field for spam filtering
               onSubmit={handleSubmit}
               className="space-y-6"
-              action="/success" // Redirect to a custom success page
+              // Remove action attribute when handling submission via AJAX
             >
               {/* Honeypot field */}
               <p className="hidden">
