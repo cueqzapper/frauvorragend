@@ -18,10 +18,10 @@ const Contact = () => {
           <div>
             <form
               name="contact" // Name your form for Netlify Forms
-              netlify // Enable Netlify Forms
-              netlify-honeypot="bot-field" // Honeypot field for spam filtering
-              className="space-y-6"
               method="POST"
+              data-netlify="true" // Enable Netlify Forms using data attribute
+              data-netlify-honeypot="bot-field" // Honeypot field for spam filtering
+              className="space-y-6"
               action="/success" // Redirect to a custom success page after submission
             >
               {/* Honeypot field */}
