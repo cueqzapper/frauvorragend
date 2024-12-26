@@ -9,7 +9,7 @@ const About = () => {
           {/* Image Section */}
           <div>
             <img
-              src="https://via.placeholder.com/800x600?text=Andrea+Siegenthaler+Casparis"
+              src="https://storage.googleapis.com/pi3/wallpapers/12-7_Wide-Medium_Woman-1/2024-05-30-140058_0-large.jpg"
               alt="Andrea Siegenthaler Casparis"
               className="rounded-lg shadow-lg object-cover"
             />
