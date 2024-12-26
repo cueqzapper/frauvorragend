@@ -1,44 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import type { ContactFormData } from '../types';
 
 const Contact = () => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [status, setStatus] = useState<string | null>(null); // To display submission status
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('Sending...');
-
-    const form = e.target as HTMLFormElement;
-    const formName = form.getAttribute('name');
-    const formDataObj = new FormData(form);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formDataObj,
-        // Do not set 'Content-Type' header when sending FormData
-      });
-
-      if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Reset form
-      } else {
-        // Attempt to read text response for error message
-        const errorText = await response.text();
-        setStatus(errorText || 'Something went wrong.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('An error occurred. Please try again later.');
-    }
-  };
-
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -55,12 +18,11 @@ const Contact = () => {
           <div>
             <form
               name="contact" // Name your form for Netlify Forms
-              method="POST"
-              data-netlify="true" // Enable Netlify Forms
-              data-netlify-honeypot="bot-field" // Honeypot field for spam filtering
-              onSubmit={handleSubmit}
+              netlify // Enable Netlify Forms
+              netlify-honeypot="bot-field" // Honeypot field for spam filtering
               className="space-y-6"
-              // Remove action attribute when handling submission via AJAX
+              method="POST"
+              action="/success" // Redirect to a custom success page after submission
             >
               {/* Honeypot field */}
               <p className="hidden">
@@ -80,8 +42,6 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-coral focus:border-transparent"
                   required
                 />
@@ -95,8 +55,6 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-coral focus:border-transparent"
                   required
                 />
@@ -109,12 +67,10 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-coral focus:border-transparent"
                   required
-                />
+                ></textarea>
               </div>
 
               <button
@@ -125,9 +81,6 @@ const Contact = () => {
                 Nachricht senden
               </button>
             </form>
-            {status && (
-              <p className="mt-4 text-center text-gray-700">{status}</p>
-            )}
           </div>
 
           {/* Contact Information */}
