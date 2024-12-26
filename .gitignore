@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-asdf.txt
+githubPat.txt
 
 node_modules
 dist
