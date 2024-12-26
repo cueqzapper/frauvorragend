@@ -3,19 +3,29 @@ import type { PortfolioItem } from '../types';
 
 const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Digital Transformation',
-    description: 'Complete digital overhaul for a leading Swiss retailer',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
+    title: 'RollUp Spitex',
+    description: 'Beispielprojekt mit Fotos und kurzer Beschreibung.',
+    imageUrl: 'https://via.placeholder.com/800x600?text=RollUp+Spitex'
   },
   {
-    title: 'Brand Strategy',
-    description: 'Developing a cohesive brand identity for a tech startup',
-    imageUrl: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80'
+    title: 'I LAUGH YOU! Broschüre',
+    description: 'Kreative Gestaltung, kurze Beschreibung.',
+    imageUrl: 'https://via.placeholder.com/800x600?text=I+LAUGH+YOU!'
   },
   {
-    title: 'E-Commerce Solution',
-    description: 'Custom e-commerce platform with integrated analytics',
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80'
+    title: 'La Famiglia Flyer',
+    description: 'Werbeflyer, kurzer Kontext.',
+    imageUrl: 'https://via.placeholder.com/800x600?text=La+Famiglia+Flyer'
+  },
+  {
+    title: 'nuniq Webdesign & Visitenkarte',
+    description: 'Webauftritt + Geschäftsausstattung.',
+    imageUrl: 'https://via.placeholder.com/800x600?text=nuniq+Webdesign'
+  },
+  {
+    title: 'Diverse Fotoshootings',
+    description: 'Stimmungsvolles Bildmaterial.',
+    imageUrl: 'https://via.placeholder.com/800x600?text=Diverse+Fotoshootings'
   }
 ];
 
@@ -23,13 +33,17 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="font-georgia text-4xl mb-12 text-center">Portfolio</h2>
+        <h2 className="font-georgia text-4xl mb-8 text-center">Portfolio / Sneak Peek</h2>
         
+        <p className="font-opensans text-lg text-gray-700 max-w-3xl mx-auto text-center mb-12">
+          „Ein kleiner Sneak Peek meiner bisherigen Arbeiten. Hier bekommst du einen Eindruck, wie ich Projekte in Szene setze und deine Idee mit frischem Design, Text und Fotografie zum Leben erwecke.“
+        </p>
+
         <div className="grid md:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg aspect-square"
+              className="group relative overflow-hidden rounded-lg aspect-square shadow-lg"
             >
               <img
                 src={item.imageUrl}

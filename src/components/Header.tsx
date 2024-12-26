@@ -1,15 +1,16 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../../assets/logo.svg';
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 pt-1 pb-2">
         <div className="flex justify-between items-center">
           <a href="#" className="text-3xl font-georgia text-coral">
-            frauvorragend
+            <img src={logo} alt="frauvorragend logo" className="h-16" />
           </a>
           
           <div className="hidden md:flex space-x-8">
