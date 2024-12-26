@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { navigate } from 'gatsby'; // Ensure you have Gatsby's navigate if using Gatsby
 import type { ContactFormData } from '../types';
 
 const Contact = () => {
@@ -11,26 +12,28 @@ const Contact = () => {
   const [status, setStatus] = useState<string | null>(null); // To display submission status
 
   const handleSubmit = async (e: React.FormEvent) => {
-    // Optionally handle client-side submission feedback
-    // For Netlify Forms, you can let the browser handle the form submission
-    // and rely on Netlify to process it.
-    // However, to provide immediate feedback without page reload, you can use AJAX.
-
-    // Prevent the default form submission behavior
     e.preventDefault();
     setStatus('Sending...');
 
+    const form = e.target as HTMLFormElement;
+    const formName = form.getAttribute('name');
+    const formDataObj = new FormData(form);
+
+    // Append the form name for Netlify Forms
+    formDataObj.append('form-name', formName || '');
+
     try {
-      const form = e.target as HTMLFormElement;
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as any).toString(),
       });
 
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
+        // Optionally redirect to a success page
+        // navigate('/success');
       } else {
         const result = await response.json();
         setStatus(result.message || 'Something went wrong.');
@@ -59,16 +62,20 @@ const Contact = () => {
               name="contact" // Name your form for Netlify Forms
               method="POST"
               data-netlify="true" // Enable Netlify Forms
+              data-netlify-honeypot="bot-field" // Honeypot field for spam filtering
               onSubmit={handleSubmit}
               className="space-y-6"
+              action="/success" // Redirect to a custom success page
             >
-              {/* Honeypot field for spam filtering */}
-              <input type="hidden" name="form-name" value="contact" />
+              {/* Honeypot field */}
               <p className="hidden">
                 <label>
                   Don’t fill this out if you're human: <input name="bot-field" />
                 </label>
               </p>
+
+              {/* Hidden form-name input */}
+              <input type="hidden" name="form-name" value="contact" />
 
               <div>
                 <label htmlFor="name" className="block font-opensans text-gray-700 mb-2">
