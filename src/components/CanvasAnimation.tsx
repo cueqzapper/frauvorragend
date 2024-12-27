@@ -122,7 +122,7 @@ const CanvasAnimation: React.FC = () => {
         this.speedY += ay + randomNoiseY;
 
         // Apply damping to slow down over time and prevent oscillation
-        const damping = 0.9975;
+        const damping = 0.9965;
         this.speedX *= damping;
         this.speedY *= damping;
 
