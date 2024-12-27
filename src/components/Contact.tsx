@@ -13,9 +13,10 @@ const Contact = () => {
           Bereit für dein neues Projekt? Kontaktiere mich noch heute! Gemeinsam finden wir heraus, wie wir deine Vision perfekt umsetzen können.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid items-center justify-center">
+        <div className="grid md:grid-cols-[400px_auto] gap-12">       
           {/* Contact Form */}
-          <div>
+          <div className="w-[400px]">
             <form
               name="contact" // Name your form for Netlify Forms
               method="POST"
@@ -83,42 +84,36 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-coral" />
-              <div>
-                <h3 className="font-georgia text-xl mb-2 text-gray-800">Adresse</h3>
-                <p className="font-opensans text-gray-600">Basel, Schweiz</p>
+          
+          <div className="inline-flex flex-col items-start justify-center space-y-8 h-full">
+              {/* Contact Information */}
+              <div className="flex items-center gap-4">
+                <MapPin className="w-6 h-6 text-coral" />
+                <div>
+                  <h3 className="font-georgia text-xl mb-2 text-gray-800">Adresse</h3>
+                  <p className="font-opensans text-gray-600">Basel, Schweiz</p>
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-start gap-4">
-              <Mail className="w-6 h-6 text-coral" />
-              <div>
-                <h3 className="font-georgia text-xl mb-2 text-gray-800">E-Mail</h3>
-                <a
-                  href="mailto:contact@frauvorragend.ch"
-                  className="font-opensans text-gray-600 hover:text-coral"
-                >
-                  contact@frauvorragend.ch
-                </a>
+              <div className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-coral" />
+                <div>
+                  <h3 className="font-georgia text-xl mb-2 text-gray-800">E-Mail</h3>
+                  <a
+                    href="mailto:contact@frauvorragend.ch"
+                    className="font-opensans text-gray-600 hover:text-coral"
+                  >
+                    contact@frauvorragend.ch
+                  </a>
+                </div>
               </div>
             </div>
-
-            <div className="flex items-start gap-4">
-              <Phone className="w-6 h-6 text-coral" />
-              <div>
-                <h3 className="font-georgia text-xl mb-2 text-gray-800">Telefon</h3>
-                <a
-                  href="tel:+41000000000"
-                  className="font-opensans text-gray-600 hover:text-coral"
-                >
-                  +41 00 000 00 00
-                </a>
-              </div>
-            </div>
+            
           </div>
+
+
+
+
         </div>
       </div>
     </section>
