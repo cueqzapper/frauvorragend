@@ -242,9 +242,6 @@ const CanvasAnimation: React.FC = () => {
       // Update and draw circles
       updateAndDrawCircles(centerX, centerY);
 
-      // Apply SVG filter before scaling
-    //   offCtx.filter = 'url(#discrete) hue-rotate(0deg) grayscale(40%)';
-
       // Draw the offscreen canvas onto the main canvas with scaling
       mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
       mainCtx.imageSmoothingEnabled = true; // Enable smoothing for better scaling
@@ -254,14 +251,12 @@ const CanvasAnimation: React.FC = () => {
         0,
         simWidth,
         simHeight,
+        -60,
         0,
-        0,
-        mainCanvas.width,
+        mainCanvas.width+120,
         mainCanvas.height
       );
       mainCtx.filter = 'url(#discrete) hue-rotate(0deg) grayscale(0%)';
-      // Reset filter for the next frame
-    //   offCtx.filter = 'none';
 
       requestAnimationFrame(animate);
     };
@@ -301,7 +296,12 @@ const CanvasAnimation: React.FC = () => {
                 <feFuncG type="discrete" tableValues="0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9"></feFuncG>
                 <feFuncB type="discrete" tableValues="0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9"></feFuncB>
             </feComponentTransfer>
-            <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+            <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+            <feComponentTransfer>
+                <feFuncR type="discrete" tableValues="0.07 0.37 0.89 95"></feFuncR>
+                <feFuncG type="discrete" tableValues="0.07 0.37 0.89 95"></feFuncG>
+                <feFuncB type="discrete" tableValues="0.07 0.37 0.89 95"></feFuncB>
+            </feComponentTransfer>
           </filter>
         </defs>
       </svg>

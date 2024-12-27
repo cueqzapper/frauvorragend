@@ -1,6 +1,6 @@
 // src/components/Hero.tsx
 import React from 'react';
-import CanvasAnimation from './CanvasAnimationOld';
+import CanvasAnimation from './CanvasAnimation';
 import { ArrowRight } from 'lucide-react';
 import logo from '../../assets/logo.svg';
 
