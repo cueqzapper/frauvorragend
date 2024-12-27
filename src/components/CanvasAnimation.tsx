@@ -138,7 +138,7 @@ const CanvasAnimation: React.FC = () => {
       draw(ctx: CanvasRenderingContext2D) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
         ctx.fill();
       }
     }
@@ -305,6 +305,8 @@ const CanvasAnimation: React.FC = () => {
                 <feFuncG type="discrete" tableValues="0.07 0.37 0.89 95"></feFuncG>
                 <feFuncB type="discrete" tableValues="0.07 0.37 0.89 95"></feFuncB>
             </feComponentTransfer>
+            <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+            <feGaussianBlur stdDeviation="2"></feGaussianBlur>
           </filter>
         </defs>
       </svg>
