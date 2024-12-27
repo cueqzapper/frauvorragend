@@ -40,3 +40,7 @@
   animation: float-delayed 6s ease-in-out infinite;
   animation-delay: -3s;
 }
+
+.hidden-header {
+  transform: translateY(-100%);
+}

@@ -12,7 +12,7 @@ const CanvasAnimation: React.FC = () => {
 
   // Define the base simulation size for the offscreen canvas
   const BASE_SIM_SIZE = 55;
-
+  const ifMobile = window.innerWidth <= 768; // Adjust breakpoint as needed
   useEffect(() => {
     // --- Utility Functions ---
 
@@ -160,19 +160,22 @@ const CanvasAnimation: React.FC = () => {
 
     // Initialize circles array with 7 circles
     const circles: Circle[] = [];
-    const initialCircleCount = 7;
+    const initialCircleCount = 8;
 
     /**
      * Initializes 7 circles at the center with different sizes.
      * @param centerX The x-coordinate of the center.
      * @param centerY The y-coordinate of the center.
      */
+    // Initialize circles with different sizes for mobile
     const initializeCircles = (centerX: number, centerY: number) => {
-      for (let i = 0; i < initialCircleCount; i++) {
-        const initialRadius = randomBetween(Math.round(((centerX+centerY)/8)), Math.round(((centerX+centerY)/2.8))); // Different initial sizes
-        circles.push(new Circle(centerX, centerY, initialRadius));
-      }
-    };
+        for (let i = 0; i < initialCircleCount; i++) {
+          const initialRadius = ifMobile
+            ? randomBetween(centerX / 1.9, centerX / 0.7)
+            : randomBetween(centerX / 6, centerX / 1.8);
+          circles.push(new Circle(centerX, centerY, initialRadius));
+        }
+      };
 
     // --- Set Canvas Sizes ---
     const setCanvasSize = () => {
