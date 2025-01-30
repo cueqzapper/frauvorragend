@@ -156,7 +156,11 @@ const CanvasAnimation: React.FC = () => {
           2 * Math.PI,
           false
         );
-        offCtx.lineWidth = 2;
+        if(ifMobile){
+          offCtx.lineWidth = 4;
+        }else{
+          offCtx.lineWidth = 2;
+        }
         offCtx.strokeStyle = `rgba(255, 255, 255, ${ring.alpha})`;
         offCtx.stroke();
 
