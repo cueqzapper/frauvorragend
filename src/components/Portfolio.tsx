@@ -5,27 +5,22 @@ const portfolioItems: PortfolioItem[] = [
   {
     title: 'RollUp Spitex',
     description: 'Beispielprojekt mit Fotos und kurzer Beschreibung.',
-    imageUrl: 'https://storage.googleapis.com/pi3/wallpapers/7-16_Portrait_Ultra_HD-Random-1/2024-04-13-065707_0-large.jpg'
+    imageUrl: '/assets/kachel_rollup.jpg'
   },
   {
     title: 'I LAUGH YOU! Broschüre',
     description: 'Kreative Gestaltung, kurze Beschreibung.',
-    imageUrl: 'https://storage.googleapis.com/pi3/wallpapers/7-16_Portrait_Ultra_HD-Woman-Art-1/2024-07-19-155610_0-large.jpg'
+    imageUrl: '/assets/kachel_ily.jpg'
   },
   {
     title: 'La Famiglia Flyer',
     description: 'Werbeflyer, kurzer Kontext.',
-    imageUrl: 'https://storage.googleapis.com/pi3/wallpapers/7-16_Portrait_Ultra_HD-Abstract-2/2024-04-07-033430_0-large.jpg'
+    imageUrl: '/assets/lafamiglia.jpg'
   },
   {
     title: 'nuniq Webdesign & Visitenkarte',
     description: 'Webauftritt + Geschäftsausstattung.',
-    imageUrl: 'https://storage.googleapis.com/pi3/wallpapers/7-16_Portrai_Ultra_HD-funky-portraits-woman-1/2024-10-15-045050_0-large.jpg'
-  },
-  {
-    title: 'Diverse Fotoshootings',
-    description: 'Stimmungsvolles Bildmaterial.',
-    imageUrl: 'https://storage.googleapis.com/pi3/wallpapers/7-16_Portrait_Ultra_HD-Surreal-1/2024-04-08-220719_0-large.jpg'
+    imageUrl: '/assets/nuniq.jpg'
   }
 ];
 
