@@ -6,13 +6,13 @@ const services: Service[] = [
   {
     title: 'Persönliche & engagierte Beratung',
     description:
-      'Dein persönlicher Kontakt für Planung, Design und Ausarbeitung. Bei mir bekommst du maßgeschneiderte Lösungen, die auf deine Bedürfnisse zugeschnitten sind. Kundenzentriert, kreativ und innovativ.',
+      'Dein persönlicher Kontakt für Planung, Design und Ausarbeitung deiner Idee. Bei mir bekommst du massgeschneiderte Lösungen, die auf deine Bedürfnisse zugeschnitten sind - kundenzentriert, kreativ und innovativ.',
     icon: 'Users',
   },
   {
     title: 'Vielseitig & vernetzt',
     description:
-      'Vielseitigkeit ist meine Stärke. Vieles ist möglich, und wenn nicht, habe ich die richtigen Kontakte. Deine Projekte profitieren von meinem breiten Angebot und meinem Netzwerk – auch für unkonventionelle Ideen.',
+      'Vielseitigkeit ist meine Stärke. Vieles ist möglich, und wenn nicht, habe ich die richtigen Kontakte, um es möglich zu machen. Deine Projekte profitieren von meinem breiten Angebot und meinem Netzwerk – auch für unkonventionelle Ideen.',
     icon: 'Network',
   },
   {

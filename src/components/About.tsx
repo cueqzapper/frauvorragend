@@ -21,21 +21,13 @@ const About = () => {
               Wer steckt hinter <span className="text-coral">frau<strong>vor</strong>ragend</span>?
             </h2>
             <p className="font-opensans text-gray-700 leading-relaxed mb-6">
-              Ich bin Andrea Siegenthaler Casparis aus Basel und seit 2022 als Freelancerin im Bereich
-              Grafikdesign und Fotografie tätig. Schon als Kind habe ich leidenschaftlich gerne
-              fotografiert, geschrieben und digitale Gestaltungen ausprobiert.
+            Ich bin Andrea Siegenthaler aus Basel und seit 2021 als Freelancerin im Bereich Grafikdesign und Fotografie tätig. Schon als Kind habe ich leidenschaftlich gerne fotografiert, geschrieben und digital gezeichnet und gestaltet.
             </p>
             <p className="font-opensans text-gray-700 leading-relaxed mb-6">
-              Heute liebe ich es, gemeinsam mit meinen Kundinnen und Kunden Projekte von Grund auf
-              zu planen und ihre Ideen ins Web oder aufs Papier zu bringen. Dabei ist mir der persönliche
-              Austausch besonders wichtig – ich finde heraus, was du wirklich willst, und mache daraus
-              dein individuelles Ergebnis.
+            Heute ist es meine Leidenschaft, gemeinsam mit meinen Kundinnen und Kunden Projekte von Grund auf zu planen und ihre Ideen ins Web oder aufs Papier zu bringen. Dabei ist mir der persönliche Austausch besonders wichtig – ich finde heraus, was du wirklich willst, und mache daraus dein individuelles Ergebnis.
             </p>
             <p className="font-opensans text-gray-700 leading-relaxed mb-6">
-              Als vielseitige Kreative übernehme ich das Design, das Branding, das Fotografieren und das
-              Schreiben. Ich berate dich gerne dabei, welche Investition für dich und deine Idee sinnvoll ist.
-              Von Planung und Design bis zur Ausarbeitung: Ich bin dein zuverlässiger Ansprechpartner und
-              begleite dich mit Freude bei der Umsetzung deiner Ideen!
+            Als vielseitige Kreative übernehme ich das Design, das Branding, das Fotografieren und das Schreiben. Ich berate dich gerne dabei, welche Investition für dich und deine Idee sinnvoll ist. Von Planung und Design bis zur Ausarbeitung: Ich bin dein zuverlässiger Ansprechpartner und begleite dich mit Freude bei der Umsetzung deiner Ideen!
             </p>
             
             {/* Call to Action */}

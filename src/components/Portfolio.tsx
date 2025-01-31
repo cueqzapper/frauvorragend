@@ -4,22 +4,22 @@ import type { PortfolioItem } from '../types';
 const portfolioItems: PortfolioItem[] = [
   {
     title: 'RollUp Spitex',
-    description: 'Beispielprojekt mit Fotos und kurzer Beschreibung.',
+    description: 'Konzeption und Gestaltung zweier Roll-ups im bestehenden Corporate Design, inklusive Copywriting und Fotoshooting.',
     imageUrl: '/assets/kachel_rollup.jpg'
   },
   {
-    title: 'I LAUGH YOU! Broschüre',
-    description: 'Kreative Gestaltung, kurze Beschreibung.',
+    title: 'Broschüre, Kunstprojekt I LAUGH YOU!',
+    description: 'Design und Textentwicklung einer Broschüre für das Kunstprojekt I LAUGH YOU!',
     imageUrl: '/assets/kachel_ily.jpg'
   },
   {
-    title: 'La Famiglia Flyer',
-    description: 'Werbeflyer, kurzer Kontext.',
+    title: 'Werbeflyer, La Famiglia Fluhberg',
+    description: 'Gestaltung eines Werbeflyers für das Familienunternehmen La Famiglia Fluhberg.',
     imageUrl: '/assets/lafamiglia.jpg'
   },
   {
-    title: 'nuniq Webdesign & Visitenkarte',
-    description: 'Webauftritt + Geschäftsausstattung.',
+    title: 'Webseite und Geschäftsausstattung, nuniq',
+    description: 'Entwicklung des Corporate Designs für nuniq, inklusive Umsetzung der Webseite, Briefkopf und Visitenkarten.',
     imageUrl: '/assets/nuniq.jpg'
   }
 ];
@@ -31,7 +31,7 @@ const Portfolio = () => {
         <h2 className="font-georgia text-4xl mb-8 text-center">Portfolio / Sneak Peek</h2>
         
         <p className="font-opensans text-lg text-gray-700 max-w-3xl mx-auto text-center mb-12">
-          „Ein kleiner Sneak Peek meiner bisherigen Arbeiten. Hier bekommst du einen Eindruck, wie ich Projekte in Szene setze und deine Idee mit frischem Design, Text und Fotografie zum Leben erwecke.“
+          „Ein kleiner Sneak Peek meiner bisherigen Arbeiten. Hier bekommst du einen Eindruck davon, wie ich Projekte in Szene setze und deine Idee mit frischem Design, Text und Fotografie zum Leben erwecke.“
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
