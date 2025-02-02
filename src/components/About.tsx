@@ -9,7 +9,7 @@ const About = () => {
           {/* Image Section */}
           <div>
             <img
-              src="https://storage.googleapis.com/pi3/wallpapers/12-7_Wide-Medium_Woman-1/2024-05-30-140058_0-large.jpg"
+              src="/potrait/1.png"
               alt="Andrea Siegenthaler Casparis"
               className="rounded-lg shadow-lg object-cover"
             />
