@@ -80,7 +80,7 @@ const Services = () => {
         {/* Examples Section */}
         <div className="mt-16">
           <h3 className="font-georgia text-2xl mb-6 text-center text-gray-900">
-            Beispiele
+          Angebote
           </h3>
           <ul className="flex flex-wrap justify-center gap-4">
             {examples.map((example, index) => (
